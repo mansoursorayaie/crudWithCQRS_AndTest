@@ -52,7 +52,6 @@ namespace Crud.EntityCore.Repositories.Customers
             entity.DateOfBirth = customer.DateOfBirth;
             entity.PhoneNumber = customer.PhoneNumber;
             entity.Email = customer.Email;
-            entity.BankAccountNumber = customer.BankAccountNumber;
             SaveChanges();
 
             return customer;

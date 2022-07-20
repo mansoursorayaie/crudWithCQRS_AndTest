@@ -8,15 +8,18 @@ using Crud.EntityCore.Repositories.Products;
 using Crud.Service.BusinessServices.CustomerProducts;
 using Crud.Service.BusinessServices.Customers;
 using Crud.Service.BusinessServices.Products;
+using Crud.Service.Dtos.Customers;
+using Crud.Service.Validatiors;
+using Crud.Service.Validatiors.Customers;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Mapster;
 using MapsterMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
+using TestCrud.Infrastructure.Validations.Filters;
 
 namespace Crud.Service.ServiceConfig
 {
@@ -30,6 +33,17 @@ namespace Crud.Service.ServiceConfig
             services.AddCustomerServices();
             services.AddMapsterServices();
             services.AdddMediatRServices();
+            services.AdddValidatorServices();
+            return services;
+        }
+
+        public static IServiceCollection AdddValidatorServices(this IServiceCollection services)
+        {
+            services.AddValidatorsFromAssemblyContaining<CustomerValidator>();
+            services.AddFluentValidation(x=>
+            {
+                x.RegisterValidatorsFromAssemblyContaining<CustomerValidator>();
+            });
             return services;
         }
 

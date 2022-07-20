@@ -1,12 +1,14 @@
 using Crud.Data.DataBase;
 using Crud.Service.ServiceConfig;
+using TestCrud.Infrastructure.Validations.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 string connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-builder.Services.AddCrudServices(connectionString);
-builder.Services.AddControllers();
 
+builder.Services.AddCrudServices(connectionString);
+
+builder.Services.AddControllers(x => x.Filters.Add<ValidationFilter>());
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

@@ -11,7 +11,6 @@ namespace Crud.Domin.Entities.Customers
         public DateTime DateOfBirth { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public long BankAccountNumber { get; set; }
 
         public ICollection<CustomerProduct> CustomerProducts{ get; set; }
     }

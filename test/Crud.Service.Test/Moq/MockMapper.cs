@@ -4,14 +4,8 @@ using Crud.Domin.Entities.Products;
 using Crud.Service.Dtos.CustomerProducts;
 using Crud.Service.Dtos.Customers;
 using Crud.Service.Dtos.Products;
-using Mapster;
 using MapsterMapper;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Crud.Service.Test.Moq
 {

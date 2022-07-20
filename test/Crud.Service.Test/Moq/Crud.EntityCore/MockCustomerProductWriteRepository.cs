@@ -1,5 +1,4 @@
 ﻿using Crud.Domin.Entities.CustomerProducts;
-using Crud.EntityCore.Repositories.CustomerProducts;
 using Crud.Service.Dtos.CustomerProducts;
 using Moq;
 
@@ -12,6 +11,7 @@ namespace Crud.Service.Test.Moq.Crud.EntityCore
         }
 
         private static CustomerProductModel ProductModel;
+
         public static CustomerProductModel GetRequestModel()
         {
             if (ProductModel == null)
